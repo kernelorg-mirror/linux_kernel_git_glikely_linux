@@ -154,7 +154,10 @@ In either case, the following conditions must be met:
 
 - CPU mode
   All forms of interrupts must be disabled (IRQs and FIQs)
-  The CPU must be in SVC mode.  (A special exception exists for Angel)
+  The CPU must be in HYP mode if supported by hardware, or SVC mode
+  otherwise.  Starting in HYP mode is required for big.LITTLE and
+  virtualization support.  Virtualized guests always start in SVC mode.
+  A special exemption exists for Angel.
 
 - Caches, MMUs
   The MMU must be off.
